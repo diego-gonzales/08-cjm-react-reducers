@@ -17,11 +17,15 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #f9f9f9;
   text-decoration: inherit;
+  border: solid 1px #f9f9f9;
+  border-radius: 10px;
+  padding: 5px;
 }
+
 a:hover {
-  color: #535bf2;
+  color: gray;
 }
 
 body {
@@ -61,10 +65,18 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
   button {
     background-color: #f9f9f9;
   }
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+ul li {
+  display: inline-block;
+  margin: 5px;
 }

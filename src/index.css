@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -29,9 +35,6 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -43,21 +46,31 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 5px 10px;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #f7e7e7;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: #242424;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: #f7e7e7;
+  background-color: #242424;
+  color: #f7e7e7;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+button:disabled {
+  cursor: none;
+  pointer-events: none;
+  opacity: .5;
 }
 
 @media (prefers-color-scheme: light) {
@@ -70,13 +83,50 @@ button:focus-visible {
   }
 }
 
+.navbar {
+  margin: 20px 0;
+}
+
 ul {
   list-style: none;
   display: flex;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 ul li {
   display: inline-block;
   margin: 5px;
+}
+
+.box {
+  padding: 1rem;
+  box-shadow: 0 0 1rem #ffffff25 inset;
+}
+
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.mx-1 {
+  margin: 10px 0;
+}
+
+.product-card {
+  border: solid 1px #fff;
+  padding: 1rem;
+}
+
+.item-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: thin solid gray;
+  padding: 10px 0;
 }

@@ -14,19 +14,52 @@ export const shoppingCartInitialState = {
 export function shoppingCartReducer(state, action) {
   switch (action.type) {
     case ACTION_TYPES.ADD_TO_CART:
-      console.log("add to cart");
-      break;
+      const itemIsAlreadyExists = state.cart.some(
+        (item) => item.id === action.item.id
+      );
+
+      return itemIsAlreadyExists
+        ? {
+            ...state,
+            cart: state.cart.map((item) =>
+              item.id === action.item.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+            )
+          }
+        : {
+            ...state,
+            cart: [...state.cart, { ...action.item, quantity: 1 }]
+          };
+
     case ACTION_TYPES.REMOVE_ONE_FROM_CART:
-      console.log("remove one from cart");
-      break;
+      return action.item.quantity > 1
+        ? {
+            ...state,
+            cart: state.cart.map((item) =>
+              item.id === action.item.id
+                ? { ...item, quantity: item.quantity - 1 }
+                : item
+            )
+          }
+        : state;
+
     case ACTION_TYPES.REMOVE_ALL_FROM_CART:
-      console.log("remove all from cart");
-      break;
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.item.id)
+      };
+
     case ACTION_TYPES.CLEAR_CART:
-      console.log("clear cart");
-      break;
-    default:
-      return state;
+      return {
+        ...state,
+        cart: []
+      };
+
+    default: {
+      throw Error("Unknown action: " + action.type);
+      // return state;
+    }
   }
 }
 

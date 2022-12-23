@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
+import { ShoppingCartProvider } from "./contexts/ShoppingCartContext";
 
 const Counter = lazy(() => import("./pages/Counter"));
 const CounterImproved = lazy(() => import("./pages/CounterImproved"));
@@ -17,7 +18,14 @@ function App() {
           <Routes>
             <Route path="/counter" element={<Counter />} />
             <Route path="/counter-improved" element={<CounterImproved />} />
-            <Route path="/shopping-cart" element={<ShoppingCart />} />
+            <Route
+              path="/shopping-cart"
+              element={
+                <ShoppingCartProvider>
+                  <ShoppingCart />
+                </ShoppingCartProvider>
+              }
+            />
             <Route path="" element={<Navigate to="/counter" />} />
             <Route path="*" element={<div>Page not found</div>} />
           </Routes>

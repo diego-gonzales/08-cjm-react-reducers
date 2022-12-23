@@ -1,5 +1,24 @@
-const CartItem = ({ item, removeFromCart, addToCart }) => {
+import { useContext } from "react";
+import { ACTION_TYPES } from "../actions/shoppingCartActions";
+import { ShoppingCartDispatchContext } from "../contexts/ShoppingCartContext";
+
+const CartItem = ({ item }) => {
   const { id, name, price, quantity } = item;
+  const dispatch = useContext(ShoppingCartDispatchContext);
+
+  const removeFromCart = (item, all = false) => {
+    if (all) {
+      dispatch({
+        type: ACTION_TYPES.REMOVE_ALL_FROM_CART,
+        item: item
+      });
+    } else {
+      dispatch({
+        type: ACTION_TYPES.REMOVE_ONE_FROM_CART,
+        item: item
+      });
+    }
+  };
 
   return (
     <div className="item-container">
@@ -15,7 +34,15 @@ const CartItem = ({ item, removeFromCart, addToCart }) => {
         >
           -
         </button>
-        <button type="button" onClick={() => addToCart(item)}>
+        <button
+          type="button"
+          onClick={() =>
+            dispatch({
+              type: ACTION_TYPES.ADD_TO_CART,
+              item: item
+            })
+          }
+        >
           +
         </button>
       </div>

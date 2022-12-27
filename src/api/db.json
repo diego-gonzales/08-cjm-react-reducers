@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Pikachu",
-      "type": "Thunder2"
+      "type": "Thunder"
     },
     {
       "id": 2,
@@ -24,11 +24,6 @@
       "id": 5,
       "name": "Mewtwo",
       "type": "Psychic"
-    },
-    {
-      "name": "sas",
-      "type": "asas",
-      "id": 1657838048407
     }
   ]
 }

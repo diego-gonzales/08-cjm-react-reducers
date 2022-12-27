@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 const Counter = lazy(() => import("./pages/Counter"));
 const CounterImproved = lazy(() => import("./pages/CounterImproved"));
 const ShoppingCart = lazy(() => import("./pages/ShoppingCart"));
+const CrudAPI = lazy(() => import('./pages/CrudAPI'));
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/counter" element={<Counter />} />
             <Route path="/counter-improved" element={<CounterImproved />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
+            <Route path="/crud-api" element={<CrudAPI />} />
             <Route path="" element={<Navigate to="/counter" />} />
             <Route path="*" element={<div>Page not found</div>} />
           </Routes>

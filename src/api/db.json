@@ -1,0 +1,34 @@
+{
+  "pokemons": [
+    {
+      "id": 1,
+      "name": "Pikachu",
+      "type": "Thunder2"
+    },
+    {
+      "id": 2,
+      "name": "Bulbasaur",
+      "type": "Plant"
+    },
+    {
+      "id": 3,
+      "name": "Charmander",
+      "type": "Fire"
+    },
+    {
+      "id": 4,
+      "name": "Squirtle",
+      "type": "Water"
+    },
+    {
+      "id": 5,
+      "name": "Mewtwo",
+      "type": "Psychic"
+    },
+    {
+      "name": "sas",
+      "type": "asas",
+      "id": 1657838048407
+    }
+  ]
+}

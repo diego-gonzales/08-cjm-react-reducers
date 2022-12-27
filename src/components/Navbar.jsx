@@ -4,7 +4,7 @@ const activeStyle = {
   backgroundColor: "#c9db62",
   color: "#000",
   pointerEvents: "none"
-}
+};
 
 const Navbar = () => {
   return (
@@ -32,6 +32,14 @@ const Navbar = () => {
             style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Shopping cart
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/crud-api"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Crud API
           </NavLink>
         </li>
       </ul>

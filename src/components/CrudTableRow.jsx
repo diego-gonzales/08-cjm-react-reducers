@@ -1,5 +1,9 @@
-const CrudTableRow = ({ element, setDataToEdit, deleteData }) => {
+import { useContext } from "react";
+import { CrudContext } from "../contexts/CrudContext";
+
+const CrudTableRow = ({ element }) => {
   const { name, type, id } = element;
+  const { setDataToEdit, deleteData } = useContext(CrudContext);
 
   return (
     <tr>

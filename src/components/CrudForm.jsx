@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { useState, useEffect } from "react";
+import { CrudContext } from "../contexts/CrudContext";
 
 const initialForm = {
   name: "",
@@ -6,11 +8,12 @@ const initialForm = {
   id: null
 };
 
-const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
+const CrudForm = () => {
   const [myForm, setMyForm] = useState(initialForm);
+  const { createData, updateData, dataToEdit, setDataToEdit } =
+    useContext(CrudContext);
 
   useEffect(() => {
-    console.log("useEffect in action");
     if (dataToEdit) {
       setMyForm(dataToEdit);
     } else {
